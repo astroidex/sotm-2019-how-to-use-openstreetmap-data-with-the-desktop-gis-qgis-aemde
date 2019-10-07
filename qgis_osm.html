@@ -1,0 +1,512 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+        <title>How to use OSM data with QGIS</title>
+
+        <meta name="description" content="Presentation at SotM 2019 Heidelberg: How to use OpenStreetMap data with the Desktop GIS QGIS - Get to know the great combination of OSM data and QGIS">
+        <meta name="author" content="Astrid Emde, WhereGroup (Bonn)">
+        
+        <link rel="shortcut icon" type="image/x-icon" href="./img/qgis/favicon.ico">        
+
+        <link rel="stylesheet" href="css/reveal.css">
+        <link rel="stylesheet" href="css/theme/osgeo.css">
+
+        <!-- Theme used for syntax highlighting of code -->
+        <link rel="stylesheet" href="lib/css/zenburn.css">
+
+        <!-- Printing and PDF exports -->
+        <script>
+            var link = document.createElement( 'link' );
+            link.rel = 'stylesheet';
+            link.type = 'text/css';
+            link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+            document.getElementsByTagName( 'head' )[0].appendChild( link );
+        </script>
+        <link href="https://fonts.googleapis.com/css?family=Sintony" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Miriam+Libre" rel="stylesheet">
+    </head>
+    <body>
+        <div class="reveal">
+          
+        <!-- header & footer --> 
+        <!--
+        <div class="staticElements">
+            <div class="headL">
+              <img src="img/sotm2019-logo.svg"></img>
+            </div>
+          <div class="headR">
+                <img src="img/qgis/wheregroup_logo.png"></img>
+          </div>
+        -->
+            
+          <!-- Footer center -->
+          <!--
+          <div class="footC">
+            <footnote>Astrid Emde (OSGeo) - State of the Map 2019 Heidelberg</footnote>
+          </div>
+        </div>
+        -->          
+          
+          
+        <div class="slides">
+
+<section>
+    <h1>How to use OpenStreetMap data with the Desktop GIS QGIS</h1>
+    <h3>Get to know the great combination of OSM data and QGIS</h3>
+    <!--<p class="title-foot">
+       Astrid Emde (<a href="https://osgeo.org/" title="OSGeo">OSGeo</a> Board)</p>-->
+    <p><small>Astrid Emde (OSGeo & <a href="https://wheregroup.com/" title="WhereGroup">WhereGroup Bonn</a>)</small></p>
+<p><img src="img/qgis/qgis_logo.png" height="100">
+</section>
+
+<section>
+<p><img src="img/qgis/qgis_logo.png" height="180">
+<p>
+    <h2>most used Open Source Desktop GIS</h2>
+<p>
+    <h2>OSGeo Project</h2>
+</section>
+
+<section>
+      <h2>I love</h2>
+<p>
+<img src="img/qgis/qgis_q_logo.png" height="280">
+<img src="img/qgis/osm_logo.png" height="290">
+</section>
+
+<section>
+      <h2>I am lucky</h2>
+      <p>because at 
+      <p>
+      <img src="img/qgis/wheregroup_logo.png" height="80">
+      <p>we work a lot with 
+<p><img src="img/qgis/qgis_q_logo.png" height="120">
+<img src="img/qgis/osm_logo.png" height="130">
+<img src="img/qgis/logo_postgis.png" height="120">
+<img src="img/qgis/logo_pgrouting.png" height="120">
+<img src="img/qgis/logo_mapserver.png" height="120">
+<img src="img/qgis/logo_geoserver.png" height="120">
+<img src="img/qgis/logo_mapproxy.png" height="120">
+<img src="img/qgis/logo_openlayers.png" height="120">
+<img src="img/qgis/logo_gdal.png" height="120">
+<img src="img/qgis/logo_mapbender.png" height="120">
+ & ...
+</section>
+
+<section>
+      <img src="img/qgis/wheregroup_logo.png" height="80">
+<p>
+<img src="img/qgis/qgis_q_logo.png" height="120">
+<img src="img/qgis/osm_logo.png" height="130">
+<img src="img/qgis/logo_mapbender.png" height="120">
+<img src="img/qgis/logo_mops.png" height="110">
+<img src="img/qgis/logo_metador.png" height="70">
+<p>
+ & QGIS HelpDesk  & FOSS Academy
+</section>
+
+<section>
+    <h2>What is QGIS?</h2>
+<ul>
+  <li>started in Alaska in 2002 as viewer for PostgreSQL data
+<p>  <img src="img/qgis/garysherman.png" height="60"> <small>by Gary Sherman</small>
+  <li class="fragment">Desktop GIS
+<p><small>with lot of functionality</small>
+  <li class="fragment">Great Community 
+<p><small>Passionate members from around the world</small>
+  <li class="fragment">QGIS is fun
+<p><small> and business</small>
+<p><img src="img/osgeo-logo-project.png" height="80">
+</ul>
+</section>
+
+<section>
+    <h2>Andreas Neumann (QGIS PSC) at FOSS4G 2019</h2>
+<p><img src="img/qgis/qgis_started.png" height="480">
+<p><small>Link to <a href="https://docs.google.com/presentation/d/1D6WAnmH-1O448HlUiFaDmMoPnTR4EqDf2BHcQl5a4ZM/edit#slide=id.p" target="_blank">FOSS4G 2019 presentation</a> and <a href="https://av.tib.eu/media/43479" target="_blank">presentation video</a> </small>
+</section>
+
+<section>
+    <h2>QGIS Versions</h2>
+<p><img src="img/qgis/world_versions_dot.png" height="600">
+</section>
+
+<section>
+    <h2>QGIS Community</h2>
+    <p>QGIS Sprint before FOSS4G 2019 Bucharest (Romania)
+<p><img src="img/qgis/qgis_community.png" height="330">
+<img src="img/qgis/qgis_community_codesprint.png" height="330">
+</section>
+
+<section>
+   <h2>QGIS Desktop GIS</h2>
+<ul>
+<li>load all sorts of data 
+<li>vector data
+<li>raster data
+<li>services
+</ul>
+<p><img src="img/qgis/qgis_logo.png" height="180">
+</section>
+
+<section>
+   <h2>QGIS what can I do with it?</h2>
+<ul>
+<li>view
+<li>create
+<li>process
+<li>print
+<li>routing
+<li>QGIS Server - create services
+<li>QField - use your data mobile & collect new data 
+<li> ... and much more
+</ul>
+<p><img src="img/qgis/qgis_logo.png" height="180">
+</section>
+
+<section>
+    <h2>QGIS and OSM</h2>
+<ul>
+<li>Easy to visualize & work with OSM data with QGIS
+<li>Plugins around QGIS
+</ul>
+</section>
+
+<section>
+ <h2>Load your OSM data into QGIS</h2>
+<p>download .pbf or ESRI Shape file
+<p><img src="img/qgis/download_osm.png" height="480">
+<p><small><a href="https://download.geofabrik.de/" target="_blank">https://download.geofabrik.de (downloads from Geofabrik)</small></a>
+</ul>
+</section>
+
+<section>
+ <h2>Load your OSM data into QGIS</h2>
+<p>change from one data model to the other
+<p><strong>from OSM:</strong> nodes, way, relations, tags
+<p><strong>to GIS:</strong> points, lines, areas, attributes
+</ul>
+</section>
+
+<section>
+ <h2>Load your OSM data into QGIS</h2>
+<p>
+powerful GDAL/OGR library is integrated in QGIS
+<p><img src="img/qgis/logo_gdal.png" height="60">
+<ul>
+<li>drag & drop your data to your QGIS project
+<li>choose the geometry type you need
+<li>temporay layer is created
+<li>transfer data to geopackage or into a PostgreSQL database via DB Manager
+<li>style your data
+</ul>
+</section>
+
+<section>
+  <p><img src="img/qgis/osmloaddata_shp.png" height="600">
+</section>
+
+<!-- no print
+<section>
+    <h2>Load OSM Data via Shape</h2>
+    <video src="./videos/osmloaddata_shp.mp4" controls>
+    Enjoy the QGIS video!  
+    </video>
+</section>
+-->
+
+<section>
+  <p><img src="img/qgis/osmloaddata_pbf.png" height="600">
+</section>
+
+<!-- no print
+<section>
+    <h2>Load OSM Data via .pbf</h2>
+    <video src="./videos/osmloaddata_pbf.mp4" controls>
+    Enjoy the QGIS video!  
+    </video>
+</section>
+-->
+
+<section>
+   <h2>QGIS Plugins</h2>
+<p>over 500 plugins including experimental 
+<p>Explore and make your choice
+<img src="img/qgis/qgis_plugins.png" height="500">
+</section>
+
+<section>
+     <h2>QuickMapServices</h2>
+     <p>choose your favorit from several services and search for datasets and basemaps
+     <p> f.e OSM Standard, OSM Topology, OSM Hiking map
+  <p>
+  <img src="img/qgis/quickmapservices.png" height="450">
+</section>
+
+<!-- no print
+<section>
+    <h2>QuickMapServices</h2>
+    <video src="./videos/quickmapservices.mp4" controls>
+    Enjoy the QGIS video!  
+    </video>
+</section>
+-->
+
+<section>
+     <h2>Plugin QuickOSM</h2>
+     <p>download OSM data thanks to the Overpass API
+  <p> 
+  <ul>
+  <li>choose the tags you are interested in and a region
+  <li>or create complex queries
+  </ul>
+  <p>
+  <img src="img/qgis/quickosm.png" height="400">
+  <!-- https://wiki.openstreetmap.org/wiki/Overpass_API -->
+</section>
+
+<!-- no print
+<section>
+    <h2>QuickOSM</h2>
+    <video src="./videos/quickosm.mp4" controls>
+    Enjoy the QGIS video!  
+    </video>
+</section>
+-->
+ 
+<section>
+    <section>
+     <h2>Plugin OSMDownloader</h2>
+    <p>easy dowload data for a given area
+    <p>
+    <img src="img/qgis/osmdownloader.png" height="400">
+    </section>
+ <!-- no print
+    <section>
+        <h2>Plugin OSMDownloader</h2>
+        <video src="./videos/osmdownloader.mp4" controls>
+        Enjoy the QGIS video!  
+        </video>
+    </section>
+    -->
+</section>    
+
+<section>
+    <section>
+       <h2>Plugin Nominatim Locator Filter</h2>
+       <p>Use the Geocoder Nominatim to search for locations
+    <p> 
+    <ul>
+    <li>go to the search field
+    <li>type osm -> followed by separator. Search for the location you are interesed in f.e. Im Neuenheimer Feld 252
+    </ul>
+    <p>
+    <img src="img/qgis/nominatimlocatorfilter1.png" height="300">
+    <img src="img/qgis/nominatimlocatorfilter2.png" height="300">
+  </section>
+
+  <!--<section data-background-video="./videos/nominatim_search.mp4" data-background-color="#000000">-->
+  <!-- no print
+  <section>
+      <h2>QuickMapServices</h2>
+      <video src="./videos/nominatim_search.mp4" controls>
+      Enjoy the QGIS video!  
+      </video>
+  </section>
+  -->
+</section>  
+
+
+<section>
+     <h2>Plugin OSM place search</h2>
+     <p>Uses the Geocoder Nominatim too
+  <p> 
+  <ul>
+  <li>find data
+  <li>set filter via configuration
+  <li>load the result, also possible as mask
+  <li>reverse geocoding for your actual position
+  </ul>
+  <p>
+  <img src="img/qgis/osmplacesearch.png" height="300">
+  <img src="img/qgis/osmplacesearch_mask.png" height="300">
+</section>
+
+<!-- no print
+<section>
+    <h2>OSM Place Search</h2>
+    <video src="./videos/osmplacesearch.mp4" controls>
+    Enjoy the QGIS video!  
+    </video>
+</section>
+-->
+
+<section>
+   <h2>Plugin ORS Tools for Routing</h2>
+   <p>Functions of openrouteservice.org based on OpenStreetMap
+<p> 
+<ul>
+<li>routing interactive in the map
+<li>calculation isochrones and matrix calculations
+<li>processing framework can handle point files
+<li>output with attributes including duration, length and start/end locations
+</ul>
+<p>
+<img src="img/qgis/orstools.png" height="300">
+<img src="img/qgis/orstools_matrix.png" height="300">
+</section>
+
+<section>
+   <h2>Plugin Animate OSM</h2>
+   <p>Visialize the buildings mapped in a time frame
+   <p>f.e HOT team defines tasks
+<p>
+<img src="img/qgis/animateosm_cyclon.png" height="400">
+</section>
+
+<section>
+   <h2>Plugin Animate OSM</h2>
+   <p>
+<p> 
+<ul>
+<li>download data for a time period
+<li>create images
+<li>create video
+</ul>
+<p>
+<img src="img/qgis/animateosm_frames.png" height="420">
+</section>
+
+<!-- no print
+<section>
+    <h2>OSM Animate OSM</h2>
+    <video src="./videos/animateosm.mp4" controls>
+    Enjoy the QGIS video!  
+    </video>
+</section>
+-->
+<section>
+   <h2>Plugin Animate OSM</h2>
+   <p>credits to Raymond Nijssen
+<p> 
+<ul>
+<li>usefull for HOT and Missing Maps
+</ul>
+<p>
+<img src="img/qgis/animateosm_raymond.png" height="400">
+</section>
+
+<section>
+   <h2>3D</h2>
+   <p>Online terrain, buildings, image export (from 3.8)
+<p> 
+<p>
+<img src="img/qgis/qgis_3d.png" height="350">
+<img src="img/qgis/qgis_3d_viewer.png" height="320">
+</section>
+
+<section>
+<h2>Find a lot of information at qgis.org</h2>
+<p>documentation, tutorial, visual change log ...
+<!-- https://www.qgis.org/en/site/forusers/visualchangelogs.html-->
+<p>
+<img src="img/qgis/qgis_documentation.png" height="350">
+<p>
+<a href="https://qgis.org">https://qgis.org</a>
+</section>
+
+<section>
+<img src="img/qgis/osgeolive_logo.png" height="80">
+<p>try OSGeoLive which contains QGIS, QGIS Server and more Open Source Software for Geospatial
+<p>iD Editor, JOSM, Mapnik & contains data and documenation
+<p>
+<img src="img/qgis/osgeolive_menu.png" height="320">
+<p>
+<a href="https://live.osgeo.org">https://live.osgeo.org</a>
+</section>
+
+
+<section>
+<h2>Books</h2>
+<p>you find many great QGIS books and tutorials
+<p>
+<img src="img/qgis/qmd2_cover.png" height="200">
+<img src="img/qgis/dq3_225px.png" height="200">
+<p>
+<a href="https://locatepress.com/qmd2">QGIS Map Design</a>
+Anita Graser and Gretchen N. Peterson LocatePress, 2018
+<p>
+<a href="https://locatepress.com/dq3">Discover QGIS 3.x</a>
+Kurt Menke
+LocatePress, 2019
+</section>
+
+<section>
+<h2>Blogs & Tweets</h2>
+<p>many many blogs & tweets about QGIS
+<ul>
+<li>Anita Graser (@underdark) <a href="https://anitagraser.com/">https://anitagraser.com/</a>
+<li>NorthRoad Advent calendar <a href="https://north-road.com/blog/">https://north-road.com/blog/</a>
+</ul>
+</section>
+
+<section>
+<h2>Videos</h2>
+<p>a lot of QGIS videos from conferences
+<p>
+<ul>
+<li><a href="https://av.tib.eu/search?q=qgis&loc=de">TIB AV-Portal search QGIS</a> > 400 hits 09/2019
+<li>media.ccc.de <a href="https://media.ccc.de/search/?q=qgis">https://media.ccc.de/search/?q=qgis</a>
+</ul>
+</section>
+
+<section>
+<h2>OSM Wiki about QGIS</h2>
+<p>Get started with the informations from the OSM Wiki
+<img src="img/qgis/osm_wiki_qgis.png" height="400">
+</section>
+
+<section>
+    <h2>Thanks you! Questions?</h2>
+<p>
+<a href="https://qgis.org">Don't forget to try</a>
+<p>
+    <a href="https://qgis.org"><img src="img/qgis/qgis_logo.png" height="150"></a>
+</br>
+<p>
+    Astrid Emde (astrid.emde@wheregroup.com) <a href="https://wheregroup.com">
+      <p><img src="img/qgis/wheregroup_logo.png" height="40"></a>  
+</section>
+
+            </div>
+        </div>
+
+        <script src="lib/js/head.min.js"></script>
+        <script src="js/reveal.js"></script>
+
+        <script>
+            // More info about config & dependencies:
+            // - https://github.com/hakimel/reveal.js#configuration
+            // - https://github.com/hakimel/reveal.js#dependencies
+            
+            /* autoloop
+                loop: true,
+                autoSlide: 5000,
+                slideNumber: true,                
+                */
+            Reveal.initialize({
+                history: true,
+                transition: "none",
+                dependencies: [
+                    { src: 'plugin/markdown/marked.js' },
+                    { src: 'plugin/markdown/markdown.js' },
+                    { src: 'plugin/notes/notes.js', async: true },
+                    { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+                ]
+            });
+        </script>
+    </body>
+</html>
